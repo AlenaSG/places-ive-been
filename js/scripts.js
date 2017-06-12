@@ -1,17 +1,17 @@
 //business logic
-function Contact(first, last) {
+function Place(first, last) {
   this.placeName = first;
   this.cityName = last;
 }
 
-function Description(link, season, review) {
-  this.myLocation = "portland";
+function Description(location, link, season, review) {
+  this.myLocation = location;
   this.myLink = link;
   this.season = season;
   this.review = review;
 }
 
-Contact.prototype.fullPlaceName = function() {
+Place.prototype.fullPlaceName = function() {
   return this.placeName + ", " + this.cityName;
 }
 
@@ -35,13 +35,13 @@ $(document).ready(function() {
 
   var inputtedPlaceName = $("input#new-place-name").val();
   var inputtedCityName = $("input#new-city-name").val();
-  var newPlace = new Contact(inputtedPlaceName, inputtedCityName);
+  var newPlace = new Place(inputtedPlaceName, inputtedCityName);
 
   var inputtedAddress = $("input#new-location-name").val();
   var inputtedLink = $("input#new-link-name").val();
   var inputtedSeason = $("input#new-season-name").val();
   var inputtedReview = $("input#new-review-name").val();
-  var newDescription = new Description(inputtedLink, inputtedSeason, inputtedReview);
+  var newDescription = new Description(inputtedAddress, inputtedLink, inputtedSeason, inputtedReview);
 
     $("ul#places").append("<li><span class='contact'>" + newPlace.fullPlaceName() + "</span></li>");
 
